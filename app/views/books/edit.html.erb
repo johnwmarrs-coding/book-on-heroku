@@ -1,0 +1,41 @@
+<h1>Edit Existing Book</h1>
+
+<%= form_for :book, url: book_path(@book), method: :patch do |f| %>
+
+	<% if @book.errors.any? %>
+		<% @book.errors.full_messages.each do |msg| %>
+			<div class="alert alert-danger"><%= msg %>
+			</div>
+		<% end %>
+	<% end %>
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field(:title, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.label :author %>
+		<%= f.text_field(:author, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.label :genre %>
+		<%= f.text_field(:genre, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.label :price %>
+		<%= f.text_field(:price, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.label :pubdate, 'Publication Date' %>
+		<%= f.text_field(:pubdate, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.submit({:class => 'btn btn-primary'})%>
+	</p>
+<% end %>
+
+<%= link_to "All Books", books_path%>

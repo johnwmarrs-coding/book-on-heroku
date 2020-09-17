@@ -1,0 +1,20 @@
+<br>
+<h2>Book Details</h2>
+<div class="card card-body w-50">
+	<p>Title: <%= @book.title %></p>
+	<p>Author: <%=@book.author%></p>
+	<p>Genre: <%=@book.genre%></p>
+	<p>Price: <%=@book.price%></p>
+	<p>Publication Date: <%=@book.pubdate%></p>
+
+	<div class="row">
+		<%= link_to "Edit", edit_book_path(@book), class: 'btn btn-primary'%>
+
+
+		<%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'%>
+
+	</div>
+
+</div>
+
+<%= link_to "All Books", books_path%>
